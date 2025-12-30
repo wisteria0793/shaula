@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+
+  # Frontend (React)
+  frontend:
+    build:
+      context: ./frontend     # frontendディレクトリをビルドのコンテキストとする
+      dockerfile: Dockerfile  # frontend用のDockerfileを指定
+    # command: npm start
+    command: npm run dev -- --host
+    volumes:
+      - ./frontend:/app       # frontendディレクトリをコンテナの/appにマウント
+      - /app/node_modules
+    ports:
+      - 5173:5173
+    environment:
+      # ViteのホットリロードをDocker内で正しく動かすための設定
+      - CHOKIDAR_USEPOLLING=true
+
+  # Backend (Django)
+  backend:
+    build: 
+      context: ./backend      # backendディレクトリをビルドのコンテキストに
+      dockerfile: Dockerfile  # backend用のDockerfileを指定
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
