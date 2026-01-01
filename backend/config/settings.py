@@ -31,12 +31,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.admin',         # 管理サイト
+    'django.contrib.auth',          # 認証システム
+    'django.contrib.contenttypes',  # コンテンツタイプフレームワーク
+    'django.contrib.sessions',      # セッションフレームワーク
+    'django.contrib.messages',      # メッセージフレームワーク
+    'django.contrib.staticfiles',   # 静的ファイルの管理フレームワーク
+    "facilities",                   # 施設を管理するアプリ
 ]
 
 MIDDLEWARE = [
@@ -120,3 +121,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# メディアファイルの設定
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+# MEDIA_ROOT: アップロードされたファイルが実際に保存されるサーバ上のフォルダの場所を定義
+# MEDIA_URL: ブラウザがそのファイルにアクセスするためのURLの接頭辞を定義
