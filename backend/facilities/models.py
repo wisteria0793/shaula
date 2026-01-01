@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 # アメニティ管理
 class Amenity(models.Model):
@@ -14,11 +14,13 @@ class Amenity(models.Model):
     
 class Facility(models.Model):
     facility_name = models.CharField("施設名", max_length=200)                      # 施設名
-    capacity = models.IntegerField("最大宿泊人数", default=0)                        # 最大宿泊人数
+    prop_key = models.CharField("プロパティキー", max_length=200, blank=True)        # Beds24 Propkey
+    room_key = models.CharField("ルームキー", max_length=50, blank=True)             # Beds24 roomkey
+    capacity = models.IntegerField("最大宿泊人数", default=1, validators=[MinValueValidator(1), MaxValueValidator(20)])     # 最大宿泊人数  
     description = models.TextField("説明文", blank=True)                            # 説明文
     short_description = models.CharField("短い説明文", max_length=100, blank=True)   # 短い説明文
     address = models.CharField("住所", max_length=200)                              # 住所
-    num_parking = models.IntegerField("駐車場台数", default=0)                       # 駐車場
+    num_parking = models.IntegerField("駐車場台数", default=0, validators=[MinValueValidator(0), MaxValueValidator(10)])    # 駐車場
     map_url = models.URLField("Google Map URL", blank=True)                         # Google MapのURL
 
     # Amenityモデルと多対多の関係を定義

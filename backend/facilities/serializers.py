@@ -25,6 +25,8 @@ class FacilitySerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'facility_name',
+            'prop_key',
+            'room_key',
             'capacity',
             'description',
             'short_description',
