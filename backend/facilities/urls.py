@@ -13,6 +13,6 @@ router.register(r'images', FacilityImageViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('/index/', index, name="index")
+    path('index/', index, name="index")
 ]
 

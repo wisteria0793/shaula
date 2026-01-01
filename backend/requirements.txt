@@ -5,3 +5,4 @@ psycopg2-binary
 gunicorn
 django-environ
 pillow
+parameterized

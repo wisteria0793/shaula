@@ -1,0 +1,7 @@
+test_name,method,target_id_placeholder,payload_json,expected_status_code,expected_response_contains_json
+"Create new facility",POST,,"{""facility_name"": ""CSV Facility"", ""capacity"": 10, ""address"": ""CSV Address""}",201,"{""facility_name"": ""CSV Facility""}"
+"Get existing facility",GET,TARGET_ID,,200,"{""facility_name"": ""初期施設""}"
+"Update existing facility",PATCH,TARGET_ID,"{""capacity"": 20}",200,"{""capacity"": 20}"
+"Create facility with bad data (no name)",POST,,"{""facility_name"": """", ""capacity"": 5, ""address"": ""Bad Address""}",400,
+"Delete existing facility",DELETE,TARGET_ID,,204,
+"Verify target facility still exists (proves test isolation)",GET,TARGET_ID,,200,
