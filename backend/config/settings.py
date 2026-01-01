@@ -25,8 +25,36 @@ SECRET_KEY = 'django-insecure-%6=0($se33)osy1s$_2k2k15c^2kaa167sjf0^4!*@$7nmq30e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1'] # 修正: ホスト名のみ、localhostと127.0.0.1を追加
 
+# CORS設定: React開発サーバーからのアクセスを許可
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173", # Vite (React) のデフォルト開発サーバーURL
+    # 必要に応じて他のオリジンも追加 (例: "http://localhost:3000" など)
+]
+# 許可するHTTPメソッド
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+# 許可するHTTPヘッダー
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
+# 資格情報（クッキーなど）の送受信を許可するか (通常はFalseでOK)
+# CORS_ALLOW_CREDENTIALS = False
 
 # Application definition
 
@@ -39,10 +67,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',   # 静的ファイルの管理フレームワーク
     'facilities',                   # 施設を管理するアプリ
     'rest_framework',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware', # 修正: CommonMiddlewareより上に移動
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
