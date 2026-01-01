@@ -1,0 +1,39 @@
+.facility-details p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.facility-details strong {
+    display: inline-block;
+    width: 150px; /* ラベルの幅を固定 */
+    color: var(--gray-color);
+}
+
+.edit-form .form-group {
+    margin-bottom: var(--spacing-unit);
+}
+
+.edit-form label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.edit-form input {
+    margin-bottom: 0.25rem;
+}
+
+.error-message {
+    color: var(--danger-color);
+    font-size: 0.875rem;
+}
+
+.actions-container {
+    margin-top: var(--spacing-unit);
+    padding-top: var(--spacing-unit);
+    border-top: 1px solid var(--border-color);
+}
+
+.actions-container button {
+    margin-right: 0.5rem;
+}

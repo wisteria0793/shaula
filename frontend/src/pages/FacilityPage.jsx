@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import '../styles/FacilityPage.css'; // 作成したCSSをインポート
 
 function FacilityPage() {
 
@@ -56,13 +57,17 @@ function FacilityPage() {
 
     return (
     
-        <div>
+        <div className="facility-content">
             {/* <h1>Hello World!</h1> */}
             <h1>施設一覧</h1>
 
-            <ul>
+            <div className="actions-container">
+                <Link to="/facilities/new" className="button">新規施設を追加</Link>
+            </div>
+
+            <ul className="facility-list"> {/* classNameを追加 */}
                 {facilities.map(facility => (
-                    <li key={facility.id}>
+                    <li key={facility.id} className="facility-list-item"> {/* classNameを追加 */}
                         <Link to={`/facilities/${facility.id}`}>{facility.facility_name}</Link>
                     </li>
                 ))}
