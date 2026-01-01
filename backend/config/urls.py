@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("facilities/", include("facilities.urls")),
+    path("api/", include("facilities.urls")),
 ]
 
 # 開発環境でのみメディアファイルを提供するための設定

@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',      # セッションフレームワーク
     'django.contrib.messages',      # メッセージフレームワーク
     'django.contrib.staticfiles',   # 静的ファイルの管理フレームワーク
-    "facilities",                   # 施設を管理するアプリ
+    'facilities',                   # 施設を管理するアプリ
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
