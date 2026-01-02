@@ -31,7 +31,7 @@ jobs:
       
       # 4. コードスタイルチェック (Link)
       # E501などは一旦無視
+      # 設定ファイル.flake8を読み込む
       - name: Link with flake8
         run: |
-          # 設定ファイル.flake8を読み込む
           flake8 .
