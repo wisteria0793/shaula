@@ -14,7 +14,7 @@ jobs:
 
     steps:
       # 1. GitHubのリポジトリからコードを持ってくる
-      - uses: actions/checkout@4
+      - uses: actions/checkout@v4 # git cloneするGitHub公式のアクション
 
       # 2. Python環境を作成
       - name: St up Python
