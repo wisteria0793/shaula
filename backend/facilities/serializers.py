@@ -19,6 +19,7 @@ class FacilityWriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Facility
         fields = [
+            'id',
             'facility_name',
             'capacity',
             'description',
@@ -31,6 +32,7 @@ class FacilityWriteSerializer(serializers.ModelSerializer):
             'prop_key',
             'room_key'
         ]
+        read_only_fields = ['id']
 
 class FacilityImageSerializer(serializers.ModelSerializer):
 
