@@ -34,4 +34,4 @@ jobs:
       - name: Link with flake8
         run: |
           # 設定ファイル.flake8を読み込む
-          flake8
+          flake8 .
