@@ -39,7 +39,10 @@ class FacilityImageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = FacilityImage
-        fields = ['id', 'image', 'caption']
+        fields = ['id', 'facility', 'image', 'caption']
+        extra_kwargs = {
+            'facility': {'write_only': True}
+        }
         # read_only_fields = ['id']
 
 class FacilitySerializer(serializers.ModelSerializer):

@@ -121,7 +121,7 @@ function FacilityDetailsPage() {
         imagePayload.append('image', selectedImage);
 
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/facilitiyimages/`, {
+            const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/images/`, {
                 method: 'POST',
                 body: imagePayload,
             });
@@ -140,7 +140,7 @@ function FacilityDetailsPage() {
     const handleImageDelete = async (imageId) => {
         if (!window.confirm('この画像を削除しますか？')) return;
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/facilityimages/${imageId}/`, {
+            const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/images/${imageId}/`, {
                 method: 'DELETE',
             });
 
